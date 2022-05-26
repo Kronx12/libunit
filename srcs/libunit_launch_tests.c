@@ -6,7 +6,7 @@
 /*   By: gbaud <gbaud@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 20:46:56 by gbaud             #+#    #+#             */
-/*   Updated: 2022/05/26 12:18:18 by gbaud            ###   ########lyon.fr   */
+/*   Updated: 2022/05/26 12:33:22 by gbaud            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ int	libunit_launch_tests(t_libunit **libunit)
 					write(1, "\033[31;1m[SEGV]\033[0m", 18);
 				else if (sig == SIGABRT)
 					write(1, "\033[31;1m[ABRT]\033[0m", 18);
+				else if (sig == SIGBUS)
+					write(1, "\033[31;1m[BUS ERROR]\033[0m", 23);
+				else if (sig == SIGPIPE)
+					write(1, "\033[31;1m[BROKEN PIPE]\033[0m", 25);
+				else if (sig == SIGILL)
+					write(1, "\033[31;1m[SIGKILL]\033[0m", 21);
 				else
 					write(1, "\033[31;1m[UNSUPPORTED SIGNAL]\033[0m", 32);
 			}
